@@ -12,11 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { HomeBodyComponent } from './components/home-body/home-body.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    HomeBodyComponent
   ],
   imports: [
     BrowserModule,

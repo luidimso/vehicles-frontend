@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IFilterOptions } from 'src/app/interfaces/vehicle.service';
 import { VehicleService } from 'src/app/services/vehicle.sevice';
@@ -8,7 +8,7 @@ import { VehicleService } from 'src/app/services/vehicle.sevice';
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.scss']
 })
-export class SideMenuComponent implements OnInit {
+export class SideMenuComponent implements OnInit, OnDestroy {
 
   filterOptions:IFilterOptions = {
     chassis: [],
@@ -31,4 +31,7 @@ export class SideMenuComponent implements OnInit {
     );
   }
 
+  ngOnDestroy(): void {
+    this.unsub.forEach(u => u.unsubscribe());
+  }
 }
