@@ -10,7 +10,12 @@ import { VehicleService } from 'src/app/services/vehicle.sevice';
 })
 export class SideMenuComponent implements OnInit {
 
-  filterOptions:IFilterOptions;
+  filterOptions:IFilterOptions = {
+    chassis: [],
+    modelos: [],
+    marcas: [],
+    anos: []
+  };
 
   private unsub:Subscription[] = [];
 
@@ -21,7 +26,7 @@ export class SideMenuComponent implements OnInit {
   ngOnInit(): void {
     this.unsub.push(
       this.vehicleService.getFilterOptions().subscribe((response:IFilterOptions) => {
-        console.log(response);
+        this.filterOptions = response;
       })
     );
   }
