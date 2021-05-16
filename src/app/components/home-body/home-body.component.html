@@ -1,13 +1,20 @@
 <section>
-    <div class='vehicle-card' *ngFor="let vehicle of vehicles">
-        <div class="vehicle-card-img">
-            <div class="image-overlay"></div>
-            <img src="../../../assets/img/car.jpeg" alt="Imagem de um carro">
-            <div class="image-overlay-text">
-                <span>Ver detalhes</span>
+    <div class="search-input">
+        <input type="text" placeholder="Procurar...">
+        <mat-icon>search</mat-icon>
+    </div>
+
+    <div class="vehicle-cards">
+        <div class='vehicle-card' *ngFor="let vehicle of vehicles">
+            <div class="vehicle-card-img">
+                <div class="image-overlay"></div>
+                <img src="../../../assets/img/car.jpeg" alt="Imagem de um carro">
+                <div class="image-overlay-text">
+                    <span>Ver detalhes</span>
+                </div>
             </div>
+            <h4>{{vehicle.modelo}}</h4>
+            <p>{{vehicle.ano}}</p>
         </div>
-        <h4>{{vehicle.modelo}}</h4>
-        <p>{{vehicle.ano}}</p>
     </div>
 </section>
