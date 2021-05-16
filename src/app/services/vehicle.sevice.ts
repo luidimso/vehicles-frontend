@@ -16,8 +16,8 @@ export class VehicleService {
     private http: HttpClient
   ) { }
 
-  getVehicles(): Observable<IVehicle> {
-    return this.http.get<IVehicle>(env.VEHICLE_URL)
+  getVehicles(): Observable<IVehicle[]> {
+    return this.http.get<IVehicle[]>(env.VEHICLE_URL)
         .pipe(
             timeout(this.calling_timeout),
             map((obj) => obj),

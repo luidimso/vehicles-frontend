@@ -10,6 +10,8 @@ import { VehicleService } from 'src/app/services/vehicle.sevice';
 })
 export class HomeBodyComponent implements OnInit, OnDestroy {
 
+  vehicles:IVehicle[] = [];
+
   private unsub:Subscription[] = [];
 
   constructor(
@@ -18,8 +20,8 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.unsub.push(
-      this.vehicleServive.getVehicles().subscribe((response:IVehicle) => {
-        console.log(response)
+      this.vehicleServive.getVehicles().subscribe((response:IVehicle[]) => {
+        this.vehicles = response;
       })
     );
   }

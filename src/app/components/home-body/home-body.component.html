@@ -1,1 +1,7 @@
-<p>home-body works!</p>
+<section>
+    <div class='vehicle-card' *ngFor="let vehicle of vehicles">
+        <img src="../../../assets/img/car.jpeg" alt="Imagem de um carro">
+        <h4>{{vehicle.modelo}}</h4>
+        <p>{{vehicle.ano}}</p>
+    </div>
+</section>
