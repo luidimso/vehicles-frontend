@@ -3,6 +3,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 import { Subscription } from 'rxjs';
 import { IVehicle } from 'src/app/interfaces/vehicle.interface';
 import { VehicleService } from 'src/app/services/vehicle.sevice';
+import { environment as env } from '../../../environments/environment';
 
 @Component({
   selector: 'app-form-vehicle',
@@ -22,6 +23,8 @@ export class FormVehicleComponent implements OnInit, OnDestroy {
     marca: new FormControl('', Validators.compose([Validators.required])),
   });
   formHasError:boolean = false;
+  
+  allBrands:string[] = env.VEHICLES_BRAND;
 
   private unsub:Subscription[] = [];
 

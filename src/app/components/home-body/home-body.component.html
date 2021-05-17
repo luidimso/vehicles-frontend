@@ -15,11 +15,11 @@
                     <span>Ver detalhes</span>
                 </div>
             </div>
-            <h4>{{vehicle.modelo}}</h4>
+            <h4>{{vehicle.marca}}</h4>
             <p>Placa: {{vehicle.placa}}</p>
             <p>{{vehicle.ano}}</p>
         </div>
     </div>
 </section>
 
-<app-modal-vehicle [vehicle]="selectedVehicle" *ngIf="selectedVehicle"></app-modal-vehicle>
+<app-modal-vehicle [vehicle]="selectedVehicle" (close)="closeModalVehicle($event)" *ngIf="selectedVehicle"></app-modal-vehicle>

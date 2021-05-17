@@ -46,7 +46,7 @@
             <label>Marca:</label>
             <mat-form-field appearance="fill">
                 <mat-select placeholder="Marca" formControlName="marca">
-                    <mat-option *ngFor="let marca of ['Marca 1', 'Marca 2', 'Marca 3']" [value]="marca">{{marca}}</mat-option>
+                    <mat-option *ngFor="let marca of allBrands" [value]="marca">{{marca}}</mat-option>
                 </mat-select>
             </mat-form-field>
             <div class="input-error" *ngIf="formHasError && vehicleForm.get('marca').errors?.required">Esse campo é obrigatório</div>

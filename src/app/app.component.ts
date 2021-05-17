@@ -41,7 +41,7 @@ export class AppComponent  implements OnInit {
       this.showBody = false;
       setTimeout(() => {
         this.showBody = true;
-      });
+      }, 500);
     } else {
       this.showForm = false;
     }

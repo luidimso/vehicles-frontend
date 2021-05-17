@@ -42,4 +42,13 @@ export class VehicleService {
             shareReplay(),
         );
   }
+
+  deleteVehicle(id:number): Observable<IVehicle[]> {
+    return this.http.delete<IVehicle[]>(env.VEHICLE_URL+"/"+id)
+        .pipe(
+            timeout(this.calling_timeout),
+            map((obj) => obj),
+            shareReplay(),
+        );
+  }
 }

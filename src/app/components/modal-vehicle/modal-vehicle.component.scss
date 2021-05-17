@@ -3,7 +3,7 @@
         position: fixed;
         top: 90px;
         left: 50%;
-        width: 300px;
+        width: 350px;
         transform: translateX(-50%);
         background-color: white;
         border-radius: 5px;
@@ -32,6 +32,17 @@
 
             b {
                 font-weight: 500;
+            }
+        }
+
+        .form-btns {
+            padding: 10px;
+            text-align: center;
+            margin-top: -20px;
+            margin-bottom: 10px;
+
+            .btn {
+                margin: 0 7px;
             }
         }
     }

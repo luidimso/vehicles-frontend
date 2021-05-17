@@ -52,6 +52,14 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.getVehicles();
+  }
+
+  ngOnDestroy(): void {
+    this.unsub.forEach(u => u.unsubscribe());
+  }
+
+  getVehicles() {
     this.unsub.push(
       this.vehicleServive.getVehicles().subscribe((response:IVehicle[]) => {
         this.vehicles = response.reverse();
@@ -59,10 +67,6 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
         this.vehiclesAuxForFilter = this.vehiclesAux;
       })
     );
-  }
-
-  ngOnDestroy(): void {
-    this.unsub.forEach(u => u.unsubscribe());
   }
 
   searchVehicles(event:Event) {
@@ -85,4 +89,12 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
     this.selectedVehicle = vehicle;
   }
 
+  closeModalVehicle(vehicle:IVehicle) {
+    if(vehicle) {
+      this.selectedVehicle = null;
+    } else {
+      this.selectedVehicle = null;
+      this.getVehicles();
+    }
+  }
 }

@@ -14,4 +14,10 @@
         <p><b>Marca: </b>{{vehicle.marca}}</p>
         <p><b>Ano: </b>{{vehicle.ano}}</p>
     </div>
+
+    <div class="form-btns">
+        <button class="btn btn-success">Editar veículo</button>
+        <button class="btn btn-danger" (click)="deleteVehicle()">Excluir veículo</button>
+        <button class="btn btn-primary" (click)="closeModal()">Voltar</button>
+    </div>
 </div>
