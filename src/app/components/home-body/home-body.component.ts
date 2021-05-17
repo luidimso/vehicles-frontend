@@ -94,13 +94,15 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
     this.selectedVehicle = vehicle;
   }
 
-  closeModalVehicle(vehicle:IVehicle) {
-    if(vehicle) {
+  closeModalVehicle(vehicle:IVehicle|string) {
+    if(vehicle && vehicle != "deleted") {
       this.selectedVehicle = null;
-      this.updateVehicle.emit(vehicle);
-    } else {
+      this.updateVehicle.emit(<IVehicle>vehicle);
+    } else if(vehicle && vehicle == "deleted") {
       this.selectedVehicle = null;
       this.getVehicles();
+    } else {
+      this.selectedVehicle = null;
     }
   }
 }

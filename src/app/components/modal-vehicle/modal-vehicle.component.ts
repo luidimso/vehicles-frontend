@@ -11,7 +11,7 @@ import { VehicleService } from 'src/app/services/vehicle.sevice';
 export class ModalVehicleComponent implements OnInit, OnDestroy {
 
   @Input() vehicle:IVehicle;
-  @Output() close:EventEmitter<IVehicle> = new EventEmitter<IVehicle>();
+  @Output() close:EventEmitter<IVehicle|string> = new EventEmitter<IVehicle|string>();
 
   error:boolean = false;
 
@@ -32,14 +32,14 @@ export class ModalVehicleComponent implements OnInit, OnDestroy {
     this.close.emit(this.vehicle);
   }
 
-  closeModal() {
-    this.close.emit(null);
+  closeModal(command:string) {
+    this.close.emit(command);
   }
 
   deleteVehicle() {
     this.unsub.push(
       this.vehicleService.deleteVehicle(this.vehicle.id).subscribe((response:IVehicle[]) => {
-        this.closeModal();
+        this.closeModal("deleted");
       }, (error) => {
         this.error = true;
       })

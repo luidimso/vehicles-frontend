@@ -1,6 +1,6 @@
 <app-modal-error [show]="error"></app-modal-error>
 
-<div class="backdrop" (click)="closeModal()"></div>
+<div class="backdrop" (click)="closeModal(null)"></div>
 
 <div class="modal-vehicle">
     <div class="vehicle-image">
@@ -20,6 +20,6 @@
     <div class="form-btns">
         <button class="btn btn-success" (click)="updateVehicle()">Editar veículo</button>
         <button class="btn btn-danger" (click)="deleteVehicle()">Excluir veículo</button>
-        <button class="btn btn-primary" (click)="closeModal()">Voltar</button>
+        <button class="btn btn-primary" (click)="closeModal(null)">Voltar</button>
     </div>
 </div>
