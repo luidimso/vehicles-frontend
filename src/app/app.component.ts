@@ -13,6 +13,7 @@ export class AppComponent  implements OnInit {
   filter:IFilterOptions;
   showForm:boolean = false;
   showBody:boolean = true;
+  vehicleToUpdate:IVehicle;
 
   constructor() {}
 
@@ -45,5 +46,10 @@ export class AppComponent  implements OnInit {
     } else {
       this.showForm = false;
     }
+  }
+
+  openFormToUpdate(vehicle:IVehicle) {
+    this.vehicleToUpdate = vehicle;
+    this.showForm = true;
   }
 }

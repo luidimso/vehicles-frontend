@@ -6,10 +6,10 @@
   </div>
 </header>
 
-<app-side-menu (filter)="filterVehicles($event)"></app-side-menu>
+<app-side-menu (filter)="filterVehicles($event)" *ngIf="showBody"></app-side-menu>
 
-<app-home-body [filter]="filter" *ngIf="showBody"></app-home-body>
+<app-home-body [filter]="filter" (updateVehicle)="openFormToUpdate($event)" *ngIf="showBody"></app-home-body>
 
-<app-form-vehicle *ngIf="showForm" (updateVehicles)="updateVehicles($event)"></app-form-vehicle>
+<app-form-vehicle [vehicleToUpdate]="vehicleToUpdate" (updateVehicles)="updateVehicles($event)" *ngIf="showForm"></app-form-vehicle>
 
 <!-- <router-outlet></router-outlet> -->

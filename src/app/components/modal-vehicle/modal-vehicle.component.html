@@ -1,4 +1,4 @@
-<div class="backdrop"></div>
+<div class="backdrop" (click)="closeModal()"></div>
 
 <div class="modal-vehicle">
     <div class="vehicle-image">
@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-btns">
-        <button class="btn btn-success">Editar veículo</button>
+        <button class="btn btn-success" (click)="updateVehicle()">Editar veículo</button>
         <button class="btn btn-danger" (click)="deleteVehicle()">Excluir veículo</button>
         <button class="btn btn-primary" (click)="closeModal()">Voltar</button>
     </div>

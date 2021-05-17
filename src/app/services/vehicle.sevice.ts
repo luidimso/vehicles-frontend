@@ -43,6 +43,15 @@ export class VehicleService {
         );
   }
 
+  updateVehicle(id:number, vecicle:IVehicle): Observable<IVehicle[]> {
+    return this.http.put<IVehicle[]>(env.VEHICLE_URL+"/"+id, vecicle)
+        .pipe(
+            timeout(this.calling_timeout),
+            map((obj) => obj),
+            shareReplay(),
+        );
+  }
+
   deleteVehicle(id:number): Observable<IVehicle[]> {
     return this.http.delete<IVehicle[]>(env.VEHICLE_URL+"/"+id)
         .pipe(

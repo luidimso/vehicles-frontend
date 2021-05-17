@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IFilterOptions, IVehicle } from 'src/app/interfaces/vehicle.interface';
 import { VehicleService } from 'src/app/services/vehicle.sevice';
@@ -38,6 +38,7 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
       this.vehiclesAuxForFilter = this.vehicles;
     }
   }
+  @Output() updateVehicle:EventEmitter<IVehicle> = new EventEmitter<IVehicle>();
 
   vehicles:IVehicle[] = [];
   vehiclesAux:IVehicle[] = [];
@@ -92,6 +93,7 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
   closeModalVehicle(vehicle:IVehicle) {
     if(vehicle) {
       this.selectedVehicle = null;
+      this.updateVehicle.emit(vehicle);
     } else {
       this.selectedVehicle = null;
       this.getVehicles();

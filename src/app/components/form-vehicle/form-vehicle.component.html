@@ -1,13 +1,15 @@
 <div class="backdrop" (click)="closeForm()"></div>
 
 <div class="form-vehicle">
-    <h3>Cadastrar novo veículo</h3>
+    <h3 *ngIf="!vehicleToUpdate">Cadastrar novo veículo</h3>
+    <h3 *ngIf="vehicleToUpdate">Atualizar veículo</h3>
 
     <form [formGroup]="vehicleForm">
         <div class="form-field">
             <label>Placa</label>
             <input type="text" placeholder="Placa" formControlName="placa">
             <div class="input-error" *ngIf="formHasError && vehicleForm.get('placa').errors?.placaInvalid">Placa inválida</div>
+            <div class="input-error" *ngIf="formHasError && vehicleForm.get('placa').errors?.maxlength">Placa inválida</div>
         </div>
         
         <div class="form-field">
@@ -52,8 +54,12 @@
             <div class="input-error" *ngIf="formHasError && vehicleForm.get('marca').errors?.required">Esse campo é obrigatório</div>
         </div>
 
-        <div class="form-btns">
+        <div class="form-btns" *ngIf="!vehicleToUpdate">
             <button class="btn btn-primary" (click)="registerVehicle()">Registrar veículo</button>
+            <button class="btn btn-danger" (click)="closeForm()">Cancelar</button>
+        </div>
+        <div class="form-btns" *ngIf="vehicleToUpdate">
+            <button class="btn btn-primary" (click)="updateVehicle()">Atualizar veículo</button>
             <button class="btn btn-danger" (click)="closeForm()">Cancelar</button>
         </div>
     </form>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { IVehicle } from 'src/app/interfaces/vehicle.interface';
@@ -12,10 +12,11 @@ import { environment as env } from '../../../environments/environment';
 })
 export class FormVehicleComponent implements OnInit, OnDestroy {
 
+  @Input() vehicleToUpdate:IVehicle;
   @Output() updateVehicles:EventEmitter<IVehicle[]> = new EventEmitter<IVehicle[]>();
 
   vehicleForm = new FormGroup({
-    placa: new FormControl('', Validators.compose([Validators.required, this.ValidateVehiclePlaca])),
+    placa: new FormControl('', Validators.compose([Validators.required, this.ValidateVehiclePlaca, Validators.maxLength(7)])),
     renavam: new FormControl('', Validators.compose([Validators.required])),
     ano: new FormControl('', Validators.compose([Validators.required, this.ValidateVehicleYear])),
     chassi: new FormControl('', Validators.compose([Validators.required])),
@@ -33,6 +34,14 @@ export class FormVehicleComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    if(this.vehicleToUpdate) {
+      this.vehicleForm.get("placa").setValue(this.vehicleToUpdate.placa);
+      this.vehicleForm.get("renavam").setValue(this.vehicleToUpdate.renavam);
+      this.vehicleForm.get("ano").setValue(this.vehicleToUpdate.ano);
+      this.vehicleForm.get("chassi").setValue(this.vehicleToUpdate.chassi);
+      this.vehicleForm.get("modelo").setValue(this.vehicleToUpdate.modelo);
+      this.vehicleForm.get("marca").setValue(this.vehicleToUpdate.marca);
+    }
   }
 
   ngOnDestroy(): void {
@@ -65,6 +74,30 @@ export class FormVehicleComponent implements OnInit, OnDestroy {
 
       this.unsub.push(
         this.vehicleService.postVehicle(newVehicle).subscribe((response:IVehicle[]) => {
+          this.updateVehicles.emit(response);
+        })
+      );
+    } else {
+      this.formHasError = true;
+    }
+  }
+
+
+  updateVehicle() {
+    if(this.vehicleForm.valid) {
+      this.formHasError = false;
+
+      var newVehicle:IVehicle = {
+        ano: this.vehicleForm.get("ano").value,
+        chassi: this.vehicleForm.get("chassi").value,
+        marca: this.vehicleForm.get("marca").value,
+        modelo: this.vehicleForm.get("modelo").value,
+        placa: this.vehicleForm.get("placa").value,
+        renavam: this.vehicleForm.get("renavam").value,
+      }
+
+      this.unsub.push(
+        this.vehicleService.updateVehicle(this.vehicleToUpdate.id, newVehicle).subscribe((response:IVehicle[]) => {
           this.updateVehicles.emit(response);
         })
       );
