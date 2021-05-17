@@ -13,6 +13,8 @@ export class ModalVehicleComponent implements OnInit, OnDestroy {
   @Input() vehicle:IVehicle;
   @Output() close:EventEmitter<IVehicle> = new EventEmitter<IVehicle>();
 
+  error:boolean = false;
+
   private unsub:Subscription[] = [];
 
   constructor(
@@ -38,6 +40,8 @@ export class ModalVehicleComponent implements OnInit, OnDestroy {
     this.unsub.push(
       this.vehicleService.deleteVehicle(this.vehicle.id).subscribe((response:IVehicle[]) => {
         this.closeModal();
+      }, (error) => {
+        this.error = true;
       })
     );
   }

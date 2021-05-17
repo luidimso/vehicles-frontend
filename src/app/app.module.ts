@@ -15,6 +15,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { HomeBodyComponent } from './components/home-body/home-body.component';
 import { ModalVehicleComponent } from './components/modal-vehicle/modal-vehicle.component';
 import { FormVehicleComponent } from './components/form-vehicle/form-vehicle.component';
+import { ModalErrorComponent } from './components/modal-error/modal-error.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormVehicleComponent } from './components/form-vehicle/form-vehicle.com
     SideMenuComponent,
     HomeBodyComponent,
     ModalVehicleComponent,
-    FormVehicleComponent
+    FormVehicleComponent,
+    ModalErrorComponent
   ],
   imports: [
     BrowserModule,

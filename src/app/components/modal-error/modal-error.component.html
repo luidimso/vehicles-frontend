@@ -1,0 +1,7 @@
+<div class="backdrop" *ngIf="showModal"></div>
+
+<div class="modal" *ngIf="showModal">
+    <h3>Erro</h3>
+    <p>Houve um erro com a conexão.</p>
+    <button class="btn btn-primary" (click)="showModal = false">Entendi</button>
+</div>

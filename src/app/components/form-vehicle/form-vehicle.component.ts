@@ -27,6 +27,8 @@ export class FormVehicleComponent implements OnInit, OnDestroy {
   
   allBrands:string[] = env.VEHICLES_BRAND;
 
+  error:boolean = false;
+
   private unsub:Subscription[] = [];
 
   constructor(
@@ -75,6 +77,8 @@ export class FormVehicleComponent implements OnInit, OnDestroy {
       this.unsub.push(
         this.vehicleService.postVehicle(newVehicle).subscribe((response:IVehicle[]) => {
           this.updateVehicles.emit(response);
+        }, (error) => {
+          this.error = true;
         })
       );
     } else {
@@ -99,6 +103,8 @@ export class FormVehicleComponent implements OnInit, OnDestroy {
       this.unsub.push(
         this.vehicleService.updateVehicle(this.vehicleToUpdate.id, newVehicle).subscribe((response:IVehicle[]) => {
           this.updateVehicles.emit(response);
+        }, (error) => {
+          this.error = true;
         })
       );
     } else {

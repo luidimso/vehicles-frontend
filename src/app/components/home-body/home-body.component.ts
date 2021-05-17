@@ -46,6 +46,8 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
 
   selectedVehicle:IVehicle;
 
+  error:boolean = false;
+
   private unsub:Subscription[] = [];
 
   constructor(
@@ -66,6 +68,8 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
         this.vehicles = response.reverse();
         this.vehiclesAux = this.vehicles;
         this.vehiclesAuxForFilter = this.vehiclesAux;
+      }, (error) => {
+        this.error = true;
       })
     );
   }

@@ -28,6 +28,8 @@ export class SideMenuComponent implements OnInit, OnDestroy {
 
   showFilterMobile:boolean = false;
 
+  error:boolean = false;
+
   private unsub:Subscription[] = [];
 
   constructor(
@@ -38,6 +40,8 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     this.unsub.push(
       this.vehicleService.getFilterOptions().subscribe((response:IFilterOptions) => {
         this.filterOptions = response;
+      }, (error) => {
+        this.error = true;
       })
     );
   }
