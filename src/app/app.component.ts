@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IFilterOptions } from './interfaces/vehicle.service';
+import { IFilterOptions } from './interfaces/vehicle.interface';
 
 @Component({
   selector: 'app-root',

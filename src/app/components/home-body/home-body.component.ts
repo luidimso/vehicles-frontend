@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IFilterOptions, IVehicle } from 'src/app/interfaces/vehicle.service';
+import { IFilterOptions, IVehicle } from 'src/app/interfaces/vehicle.interface';
 import { VehicleService } from 'src/app/services/vehicle.sevice';
 
 @Component({
@@ -11,7 +11,6 @@ import { VehicleService } from 'src/app/services/vehicle.sevice';
 export class HomeBodyComponent implements OnInit, OnDestroy {
 
   @Input() set filter(value:IFilterOptions) {
-    console.log("Opa")
     if(value) {
       this.vehicles = this.vehiclesAux;
 
@@ -43,6 +42,8 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
   vehicles:IVehicle[] = [];
   vehiclesAux:IVehicle[] = [];
   vehiclesAuxForFilter:IVehicle[] = [];
+
+  selectedVehicle:IVehicle;
 
   private unsub:Subscription[] = [];
 
@@ -78,6 +79,10 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
         );
       });
     }
+  }
+
+  selectVehicle(vehicle:IVehicle) {
+    this.selectedVehicle = vehicle;
   }
 
 }

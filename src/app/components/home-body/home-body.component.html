@@ -7,7 +7,7 @@
     <p class="no-vehicles" *ngIf="vehicles.length == 0">Nenhum veículo encontrado</p>
 
     <div class="vehicle-cards">
-        <div class='vehicle-card' *ngFor="let vehicle of vehicles">
+        <div class='vehicle-card' *ngFor="let vehicle of vehicles" (click)="selectVehicle(vehicle)">
             <div class="vehicle-card-img">
                 <div class="image-overlay"></div>
                 <img src="../../../assets/img/car.jpeg" alt="Imagem de um carro">
@@ -16,7 +16,10 @@
                 </div>
             </div>
             <h4>{{vehicle.modelo}}</h4>
+            <p>Placa: {{vehicle.placa}}</p>
             <p>{{vehicle.ano}}</p>
         </div>
     </div>
 </section>
+
+<app-modal-vehicle [vehicle]="selectedVehicle" *ngIf="selectedVehicle"></app-modal-vehicle>

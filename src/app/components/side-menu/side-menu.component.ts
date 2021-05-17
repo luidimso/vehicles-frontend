@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IFilterOptions } from 'src/app/interfaces/vehicle.service';
+import { IFilterOptions } from 'src/app/interfaces/vehicle.interface';
 import { VehicleService } from 'src/app/services/vehicle.sevice';
 
 @Component({

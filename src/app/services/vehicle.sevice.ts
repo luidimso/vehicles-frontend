@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { timeout, map, shareReplay } from 'rxjs/operators';
 import { environment as env } from '../../environments/environment';
-import { IFilterOptions, IVehicle } from '../interfaces/vehicle.service';
+import { IFilterOptions, IVehicle } from '../interfaces/vehicle.interface';
 
 @Injectable({
   providedIn: 'root'
