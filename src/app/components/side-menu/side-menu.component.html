@@ -3,31 +3,31 @@
 
     <label>Chassi:</label>
     <mat-form-field appearance="fill">
-        <mat-select placeholder="Chassi" multiple>
+        <mat-select placeholder="Chassi" [(ngModel)]="selectedFilters.chassis" multiple>
           <mat-option *ngFor="let chassi of filterOptions.chassis" [value]="chassi">{{chassi}}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <label>Modelo:</label>
     <mat-form-field appearance="fill">
-        <mat-select placeholder="Modelo" multiple>
+        <mat-select placeholder="Modelo" [(ngModel)]="selectedFilters.modelos" multiple>
           <mat-option *ngFor="let modelo of filterOptions.modelos" [value]="modelo">{{modelo}}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <label>Marca:</label>
     <mat-form-field appearance="fill">
-        <mat-select placeholder="Marca" multiple>
+        <mat-select placeholder="Marca" [(ngModel)]="selectedFilters.marcas" multiple>
           <mat-option *ngFor="let marca of filterOptions.marcas" [value]="marca">{{marca}}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <label>Ano:</label>
     <mat-form-field appearance="fill">
-        <mat-select placeholder="Ano" multiple>
+        <mat-select placeholder="Ano" [(ngModel)]="selectedFilters.anos" multiple>
           <mat-option *ngFor="let ano of filterOptions.anos" [value]="ano">{{ano}}</mat-option>
         </mat-select>
     </mat-form-field>
 
-    <button>Procurar veículos</button>
+    <button (click)="sendFilter()">Procurar veículos</button>
 </section>

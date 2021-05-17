@@ -23,4 +23,8 @@ export class AppComponent  implements OnInit {
       this.smallHeader = false;
     }
   }
+
+  filterVehicles(filter:any) {
+    console.log(filter)
+  }
 }

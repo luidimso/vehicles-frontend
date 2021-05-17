@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IFilterOptions } from 'src/app/interfaces/vehicle.service';
 import { VehicleService } from 'src/app/services/vehicle.sevice';
@@ -10,12 +10,21 @@ import { VehicleService } from 'src/app/services/vehicle.sevice';
 })
 export class SideMenuComponent implements OnInit, OnDestroy {
 
+  @Output() filter:EventEmitter<any> = new EventEmitter<any>();
+
   filterOptions:IFilterOptions = {
     chassis: [],
     modelos: [],
     marcas: [],
     anos: []
   };
+
+  selectedFilters = {
+    chassis: [],
+    modelos: [],
+    marcas: [],
+    anos: []
+  }
 
   private unsub:Subscription[] = [];
 
@@ -33,5 +42,9 @@ export class SideMenuComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.unsub.forEach(u => u.unsubscribe());
+  }
+
+  sendFilter() {
+    this.filter.emit(this.selectedFilters);
   }
 }
