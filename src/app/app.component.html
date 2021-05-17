@@ -1,6 +1,6 @@
 <header [class.small-header]="smallHeader">
   <img src="../assets/img/logo-example.png" alt="Logo">
-  <div class="new-vehicle-btn">
+  <div class="new-vehicle-btn" (click)="showForm = true">
     <mat-icon>add_circle</mat-icon>
     <span>Cadastrar veículo</span>
   </div>
@@ -9,5 +9,7 @@
 <app-side-menu (filter)="filterVehicles($event)"></app-side-menu>
 
 <app-home-body [filter]="filter"></app-home-body>
+
+<app-form-vehicle *ngIf="showForm"></app-form-vehicle>
 
 <!-- <router-outlet></router-outlet> -->

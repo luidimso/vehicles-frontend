@@ -8,3 +8,38 @@
     z-index: 5;
     cursor: pointer;
 }
+
+mat-form-field {
+    width: 100%;
+    margin-top: 5px;
+
+    .mat-form-field-flex {
+        background-color: white !important;
+        border: 1px solid #CCCCCC !important;
+        height: 40px !important;
+        padding-top: 2px !important;
+        border-radius: 5px !important;
+
+        .mat-form-field-infix {
+            border: 0 !important;
+            margin-top: 5px !important;
+
+            .mat-select-arrow {
+                margin-top: 15px !important;
+            }
+
+            .mat-select-placeholder {
+                font-size: 0.8em;
+                color: var(--text);
+            }
+
+            .mat-select-value-text {
+                font-size: 0.8em;
+            }
+        }
+    }
+}
+
+.mat-form-field-underline {
+    display: none !important;
+}

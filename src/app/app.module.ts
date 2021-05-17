@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { HomeBodyComponent } from './components/home-body/home-body.component';
 import { ModalVehicleComponent } from './components/modal-vehicle/modal-vehicle.component';
+import { FormVehicleComponent } from './components/form-vehicle/form-vehicle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideMenuComponent,
     HomeBodyComponent,
-    ModalVehicleComponent
+    ModalVehicleComponent,
+    FormVehicleComponent
   ],
   imports: [
     BrowserModule,

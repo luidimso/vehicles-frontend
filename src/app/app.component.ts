@@ -11,6 +11,7 @@ export class AppComponent  implements OnInit {
 
   smallHeader:boolean = false;
   filter:IFilterOptions;
+  showForm:boolean = false;
 
   constructor() {}
 

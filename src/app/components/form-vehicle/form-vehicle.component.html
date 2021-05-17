@@ -1,0 +1,54 @@
+<div class="backdrop"></div>
+
+<div class="form-vehicle">
+    <h3>Cadastrar novo veículo</h3>
+
+    <form>
+        <div class="form-field">
+            <label>Placa</label>
+            <input type="text" placeholder="Placa">
+        </div>
+        
+        <div class="form-field">
+            <label>Renavam</label>
+            <input type="text" placeholder="Renavam">
+        </div>
+
+        <div class="form-field">
+            <label>Ano</label>
+            <input type="text" placeholder="Ano">
+        </div>
+
+        <div class="form-field">
+            <label>Chassi:</label>
+            <mat-form-field appearance="fill">
+                <mat-select placeholder="Chassi" multiple>
+                <mat-option *ngFor="let chassi of ['Chassi 1', 'Chassi 2', 'Chassi 3']" [value]="chassi">{{chassi}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-field">
+            <label>Modelo:</label>
+            <mat-form-field appearance="fill">
+                <mat-select placeholder="Modelo" multiple>
+                <mat-option *ngFor="let modelo of ['Modelo 1', 'Modelo 2', 'Modelo 3']" [value]="modelo">{{modelo}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-field">
+            <label>Marca:</label>
+            <mat-form-field appearance="fill">
+                <mat-select placeholder="Marca" multiple>
+                <mat-option *ngFor="let marca of ['Marca 1', 'Marca 2', 'Marca 3']" [value]="marca">{{marca}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-btns">
+            <button class="btn btn-primary">Registrar veículo</button>
+            <button class="btn btn-danger">Cancelar</button>
+        </div>
+    </form>
+</div>
