@@ -26,6 +26,8 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     anos: []
   }
 
+  showFilterMobile:boolean = false;
+
   private unsub:Subscription[] = [];
 
   constructor(
@@ -46,5 +48,6 @@ export class SideMenuComponent implements OnInit, OnDestroy {
 
   sendFilter() {
     this.filter.emit(this.selectedFilters);
+    this.showFilterMobile = false;
   }
 }

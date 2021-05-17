@@ -116,4 +116,10 @@
             }
         }
     }
+
+    @media (max-width: 670px) {
+        section {
+            margin-left: 0;
+        }
+    }
 }

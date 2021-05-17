@@ -1,4 +1,4 @@
-<section>
+<section class="fixed-filter">
     <h3>Filtre os veículos</h3>
 
     <label>Chassi:</label>
@@ -31,3 +31,45 @@
 
     <button class="btn btn-primary" (click)="sendFilter()">Procurar veículos</button>
 </section>
+
+<div class="filter-mobile-btn" (click)="showFilterMobile = true">
+  <mat-icon>filter_list</mat-icon>
+  <span>Filtro</span>
+</div>
+
+<div class="backdrop" *ngIf="showFilterMobile"></div>
+
+<div class="filter-mobile" *ngIf="showFilterMobile">
+  <h3>Filtre os veículos</h3>
+
+    <label>Chassi:</label>
+    <mat-form-field appearance="fill">
+        <mat-select placeholder="Chassi" [(ngModel)]="selectedFilters.chassis" multiple>
+          <mat-option *ngFor="let chassi of filterOptions.chassis" [value]="chassi">{{chassi}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <label>Modelo:</label>
+    <mat-form-field appearance="fill">
+        <mat-select placeholder="Modelo" [(ngModel)]="selectedFilters.modelos" multiple>
+          <mat-option *ngFor="let modelo of filterOptions.modelos" [value]="modelo">{{modelo}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <label>Marca:</label>
+    <mat-form-field appearance="fill">
+        <mat-select placeholder="Marca" [(ngModel)]="selectedFilters.marcas" multiple>
+          <mat-option *ngFor="let marca of filterOptions.marcas" [value]="marca">{{marca}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <label>Ano:</label>
+    <mat-form-field appearance="fill">
+        <mat-select placeholder="Ano" [(ngModel)]="selectedFilters.anos" multiple>
+          <mat-option *ngFor="let ano of filterOptions.anos" [value]="ano">{{ano}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button class="btn btn-primary" (click)="sendFilter()">Procurar veículos</button>
+    <button class="btn btn-danger" (click)="showFilterMobile = false">Cancelar</button>
+</div>
