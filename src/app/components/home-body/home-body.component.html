@@ -4,6 +4,8 @@
         <mat-icon>search</mat-icon>
     </div>
 
+    <p class="no-vehicles" *ngIf="vehicles.length == 0">Nenhum veículo encontrado</p>
+
     <div class="vehicle-cards">
         <div class='vehicle-card' *ngFor="let vehicle of vehicles">
             <div class="vehicle-card-img">

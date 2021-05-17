@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IFilterOptions } from './interfaces/vehicle.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ export class AppComponent  implements OnInit {
   title = 'vehicles-frontend';
 
   smallHeader:boolean = false;
+  filter:IFilterOptions;
 
   constructor() {}
 
@@ -24,7 +26,10 @@ export class AppComponent  implements OnInit {
     }
   }
 
-  filterVehicles(filter:any) {
-    console.log(filter)
+  filterVehicles(filter:IFilterOptions) {
+    this.filter = null;
+    setTimeout(() => {
+      this.filter = filter;
+    })
   }
 }

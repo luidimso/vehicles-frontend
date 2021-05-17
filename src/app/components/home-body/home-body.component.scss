@@ -23,6 +23,11 @@
             }
         }
 
+        .no-vehicles {
+            text-align: center;
+            color: var(--text);
+        }
+
         .vehicle-cards {
             display: flex;
             justify-content: center;

@@ -19,7 +19,7 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     anos: []
   };
 
-  selectedFilters = {
+  selectedFilters:IFilterOptions = {
     chassis: [],
     modelos: [],
     marcas: [],
