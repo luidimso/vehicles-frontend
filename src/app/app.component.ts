@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IFilterOptions } from './interfaces/vehicle.interface';
+import { IFilterOptions, IVehicle } from './interfaces/vehicle.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,7 @@ export class AppComponent  implements OnInit {
   smallHeader:boolean = false;
   filter:IFilterOptions;
   showForm:boolean = false;
+  showBody:boolean = true;
 
   constructor() {}
 
@@ -32,5 +33,17 @@ export class AppComponent  implements OnInit {
     setTimeout(() => {
       this.filter = filter;
     })
+  }
+
+  updateVehicles(vehicles:IVehicle[]) {
+    if(vehicles) {
+      this.showForm = false;
+      this.showBody = false;
+      setTimeout(() => {
+        this.showBody = true;
+      });
+    } else {
+      this.showForm = false;
+    }
   }
 }

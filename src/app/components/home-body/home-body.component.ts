@@ -54,7 +54,7 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.unsub.push(
       this.vehicleServive.getVehicles().subscribe((response:IVehicle[]) => {
-        this.vehicles = response;
+        this.vehicles = response.reverse();
         this.vehiclesAux = this.vehicles;
         this.vehiclesAuxForFilter = this.vehiclesAux;
       })

@@ -33,4 +33,13 @@ export class VehicleService {
             shareReplay(),
         );
   }
+
+  postVehicle(vecicle:IVehicle): Observable<IVehicle[]> {
+    return this.http.post<IVehicle[]>(env.VEHICLE_URL, vecicle)
+        .pipe(
+            timeout(this.calling_timeout),
+            map((obj) => obj),
+            shareReplay(),
+        );
+  }
 }

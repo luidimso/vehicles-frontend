@@ -1,4 +1,4 @@
-<div class="backdrop"></div>
+<div class="backdrop" (click)="closeForm()"></div>
 
 <div class="form-vehicle">
     <h3>Cadastrar novo veículo</h3>
@@ -54,7 +54,7 @@
 
         <div class="form-btns">
             <button class="btn btn-primary" (click)="registerVehicle()">Registrar veículo</button>
-            <button class="btn btn-danger">Cancelar</button>
+            <button class="btn btn-danger" (click)="closeForm()">Cancelar</button>
         </div>
     </form>
 </div>
