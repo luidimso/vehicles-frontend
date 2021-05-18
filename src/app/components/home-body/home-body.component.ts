@@ -11,6 +11,7 @@ import { VehicleService } from 'src/app/services/vehicle.sevice';
 export class HomeBodyComponent implements OnInit, OnDestroy {
 
   @Input() set filter(value:IFilterOptions) {
+    //Toda vez que os valores dos filtros selecionados mudarem, é executado uma sequência de 'ifs' para buscar os veículos que tenham algum dos valores selecionados nos filtros
     if(value) {
       this.vehicles = this.vehiclesAux;
 
@@ -95,6 +96,9 @@ export class HomeBodyComponent implements OnInit, OnDestroy {
   }
 
   closeModalVehicle(vehicle:IVehicle|string) {
+    //Se ao fechar o modal do veículo, o valor retornado do output do componente for um veículo, envia esse veículo para o formulário para poder ser atualizado
+    //Se o retorno for igual a string 'deleted', então o veículo foi excluido, o que faz uma nova consulta para pegar os veículos no backend
+    //Se o retorno for nulo, não faça nada
     if(vehicle && vehicle != "deleted") {
       this.selectedVehicle = null;
       this.updateVehicle.emit(<IVehicle>vehicle);
