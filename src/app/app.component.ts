@@ -37,6 +37,8 @@ export class AppComponent  implements OnInit {
   }
 
   updateVehicles(vehicles:IVehicle[]) {
+    this.vehicleToUpdate = null;
+    
     if(vehicles) {
       this.showForm = false;
       this.showBody = false;
